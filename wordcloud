@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+
+def generate_wordcloud(text):
+    # Instantiate / create a new wordcloud.
+    wordcloud = WordCloud(
+            random_state = 8,
+            normalize_plurals = True,
+            width = 600,
+            height= 300,
+            max_words = 50
+            )
+    # Apply the wordcloud to the text.
+    wordcloud.generate(text)
+
+    # create a figure
+    fig, ax = plt.subplots(1,1, figsize = (9,6))
+    # add interpolation = bilinear to smooth things out
+    plt.imshow(wordcloud, interpolation='bilinear')
+    # and remove the axis
+    plt.axis("off")

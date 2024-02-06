@@ -1,0 +1,18 @@
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+nltk.download('omw-1.4')
+nltk.download('wordnet')
+
+# Tokenisation des mots
+tokens = word_tokenize(text_without_punc)
+
+# Initialisation du lemmatiseur
+lemmatiseur = WordNetLemmatizer()
+
+words_lemmatized = []
+# Lemmatisation pour chaque mot avec la partie du discours (POS)
+for token in tokens:
+    # Utilisation de la méthode lemmatize avec le POS approprié
+    lemma = lemmatiseur.lemmatize(token)
+    words_lemmatized.append(lemma)
